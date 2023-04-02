@@ -1,2 +1,3 @@
-# task4-Lit
-Time formatter using Lit.
+# Time formatter
+
+Time formatter web component package.
