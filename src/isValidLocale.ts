@@ -1,11 +1,14 @@
-const isValidLocale = (locale: string): boolean => {
+// This function check if passed locale is valid, if not return current browser's locale.
+const isValidLocale = (locale: string): string => {
   try {
     const _ = new Intl.Locale(locale);
-    return true;
+    return locale;
   } catch {
-    return false;
+    return Intl.DateTimeFormat().resolvedOptions().locale;
   }
 };
+
+export default isValidLocale;
 
 console.log(isValidLocale("en")); // true
 console.log(isValidLocale("en-US")); // true
