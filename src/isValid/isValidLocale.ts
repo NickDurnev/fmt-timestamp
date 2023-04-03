@@ -15,3 +15,5 @@ console.log(isValidLocale("en-US")); // true
 console.log(isValidLocale("en_US")); // false
 console.log(isValidLocale("invalid-locale")); // true
 console.log(isValidLocale("q")); // false
+
+
