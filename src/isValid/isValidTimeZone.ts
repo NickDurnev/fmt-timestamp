@@ -10,6 +10,3 @@ const isValidTimeZone = (timeZone: string): string => {
 }
 
 export default isValidTimeZone;
-
-console.log(isValidTimeZone('America/New_York')); // true
-console.log(isValidTimeZone('Invalid/Timezone')); // false

@@ -24,12 +24,9 @@ const formatToTime = (
     timeOptions // the options to use when formatting the time string.
   ).format(roundedDate);
 
-  // log the resulting time string to the console for debugging purposes.
-  console.log(timeString);
-
   // return the formatted time
   return timeString;
 };
 
-formatToTime("2023-03-29T12:25:07.427Z", "en", "America/Los_Angeles");
-formatToTime("2023-03-29T12:25:07.427Z", "uk", "Europe/Kiev");
+export default formatToTime;
+

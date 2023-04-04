@@ -27,7 +27,9 @@
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
+    "@vitest/coverage-c8": "^0.29.8",
     "@web/dev-server": "^0.1.37",
+    "jsdom": "^21.1.1",
     "vitest": "^0.29.8"
   },
   "types": "date-formatter.d.ts"

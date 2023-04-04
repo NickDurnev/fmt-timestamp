@@ -4,7 +4,7 @@ import isValidLocale from "../isValid/isValidLocale";
 const formatRelativeTime = (input: string, locale: string): string => {
   const validLocale = isValidLocale(locale); // check if passed locale is valid
   const date: Date = new Date(input); // convert the input string to a Date object
-  const diff = date.getTime() - (Date.now() + 180 * 60000);  // calculate the time difference between the input date and the current date
+  const diff = date.getTime() - new Date().getTime();  // calculate the time difference between the input date and the current date
   const rtf = new Intl.RelativeTimeFormat(validLocale, { numeric: "auto" });   // create a new Intl.RelativeTimeFormat object with the valid locale and auto numeric style
   
   const seconds = Math.round(Math.abs(diff) / 1000); // calculate the number of seconds in the time difference
@@ -53,4 +53,6 @@ const formatRelativeTime = (input: string, locale: string): string => {
   return rtf.format(Math.sign(diff) * years, "years");
 };
 
-console.log(formatRelativeTime("2023-04-04T00:24:20.427Z", "en-GB"));
+export default formatRelativeTime;
+
+

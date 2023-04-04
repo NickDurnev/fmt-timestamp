@@ -19,6 +19,5 @@ const formatToShort = (input: string, locale: string, timeZone: string) => {
   return formatter.format(date);
 };
 
-console.log(formatToShort("2023-01-31T22:32:20.427Z", "en-GB", 'Europe/Kiev'));
-console.log(formatToShort("2023-01-31T22:32:20.427Z", "en", "America/Los_Angeles"));
+export default formatToShort;
 
