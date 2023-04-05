@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import roundTime from "../formatData/roundTime";
+import {roundTime } from '../formatData';
 
 describe("roundTime", () => {
   it("positive tests", () => {

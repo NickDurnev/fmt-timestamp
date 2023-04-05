@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import formatToShort from "../formatData/formatToShort";
+import { formatToShort } from '../formatData';
 
 describe("formatToShort", () => {
   it("positive tests", () => {

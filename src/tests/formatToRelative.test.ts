@@ -1,5 +1,5 @@
 import { expect, describe, it, vi } from "vitest";
-import formatRelativeTime from "../formatData/formatToRelative";
+import { formatRelativeTime } from '../formatData';
 
 describe("formatRelativeTime", () => {
   vi.useFakeTimers().setSystemTime(new Date("2023-04-04T18:24:20.427Z"));

@@ -1,8 +1,8 @@
-import isValidLocale from "../isValid/isValidLocale";
-import isValidTimeZone from "../isValid/isValidTimeZone";
+import {isValidLocale, isValidTimeZone} from '../isValid';
+import funcType from "./funcType";
 
 // This function formats a given input string to a short form of data (e.g. 31 Jan 22) using the specified locale.
-const formatToShort = (input: string, locale: string, timeZone: string) => {
+export const formatToShort:funcType = (input, locale, timeZone) => {
   const validLocale = isValidLocale(locale); // check if passed locale is valid
   const validTimeZone = isValidTimeZone(timeZone); // check if passed timeZone is valid
   const date = new Date(input); // get the current date
@@ -18,6 +18,4 @@ const formatToShort = (input: string, locale: string, timeZone: string) => {
   // return the formatted short form.
   return formatter.format(date);
 };
-
-export default formatToShort;
 

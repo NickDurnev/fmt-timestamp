@@ -1,6 +1,6 @@
 
 import { expect, describe, it, vi } from "vitest";
-import isValidLocale from "../isValid/isValidLocale";
+import { isValidLocale } from '../isValid';
 
 describe("isValidLocale", () => {
     const mockFn = vi.fn().mockImplementation(() => Intl.DateTimeFormat().resolvedOptions().locale);

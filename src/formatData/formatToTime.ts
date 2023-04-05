@@ -1,13 +1,13 @@
-import roundTime from "./roundTime";
-import isValidLocale from "../isValid/isValidLocale";
-import isValidTimeZone from "../isValid/isValidTimeZone";
+import { roundTime } from './index';
+import {isValidLocale, isValidTimeZone} from '../isValid'
+import funcType from "./funcType";
 
 // This function formats a given input string to a time (e.g. 3:26 PM) using the specified locale and timeZone.
-const formatToTime = (
-  input: string,
-  locale: string,
-  timeZone: string
-): string => {
+export const formatToTime: funcType = (
+  input,
+  locale,
+  timeZone
+) => {
   const roundedDate = roundTime(input); // round the input date to the nearest minute using the roundTime helper function.
   const validLocale = isValidLocale(locale); // check if passed locale is valid
   const validTimeZone = isValidTimeZone(timeZone); // check if passed timeZone is valid
@@ -27,6 +27,4 @@ const formatToTime = (
   // return the formatted time
   return timeString;
 };
-
-export default formatToTime;
 

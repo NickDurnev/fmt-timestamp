@@ -1,6 +1,6 @@
 
 import { expect, describe, it, vi } from "vitest";
-import isValidTimeZone from "../isValid/isValidTimeZone";
+import { isValidTimeZone } from '../isValid';
 
 describe("isValidTimeZone", () => {
     const mockFn = vi.fn().mockImplementation(() => Intl.DateTimeFormat().resolvedOptions().timeZone);
