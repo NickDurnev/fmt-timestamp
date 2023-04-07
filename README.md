@@ -6,7 +6,7 @@ Time formatter web component package.
 npm start
 ```
 
-Run web dev server.
+Run web dev server. But first fo all add index.html in main folder and scripts from dist folder.
 
 ```bash
 npm run test
