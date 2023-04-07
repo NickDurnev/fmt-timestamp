@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Time formatter using Lit.",
   "main": "index.js",
+  "publishConfig": {"registry": "https://npm.pkg.github.com"},
   "type": "module",
   "scripts": {
     "test": "vitest",

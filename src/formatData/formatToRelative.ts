@@ -2,8 +2,9 @@ import {isValidLocale} from '../isValid'
 import funcType from "./funcType";
 
 // This function formats a given input string to a relative form of data (e.g. 2 days ago) using the specified locale.
-export const formatRelativeTime:funcType = (input, locale) => {
-  const validLocale = isValidLocale(locale); // check if passed locale is valid
+export const formatRelativeTime: funcType = (input, locale) => {
+  try {
+      const validLocale = isValidLocale(locale); // check if passed locale is valid
   const date: Date = new Date(input); // convert the input string to a Date object
   const diff = date.getTime() - new Date().getTime();  // calculate the time difference between the input date and the current date
   const rtf = new Intl.RelativeTimeFormat(validLocale, { numeric: "auto" });   // create a new Intl.RelativeTimeFormat object with the valid locale and auto numeric style
@@ -52,6 +53,10 @@ export const formatRelativeTime:funcType = (input, locale) => {
   const years = Math.round(months / 12);
   // return the relative time string for years
   return rtf.format(Math.sign(diff) * years, "years");
+
+  } catch (error) {
+    return null
+  }
 };
 
 
