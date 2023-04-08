@@ -18,7 +18,7 @@
     "build": "vite build"
   },
   "publishConfig": {
-   "@nick_durnev:registry": "https://npm.pkg.github.com"
+   "@NickDurnev:registry": "https://npm.pkg.github.com"
  },
   "repository": {
     "type": "git",
