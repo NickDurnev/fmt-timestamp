@@ -1,5 +1,5 @@
 {
-  "name": "@NickDurnev/time-formatter-WC-package",
+  "name": "@nick_durnev/time-formatter",
   "version": "1.0.0",
   "description": "Time formatter using Lit.",
   "type": "module",
