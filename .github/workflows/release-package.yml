@@ -3,53 +3,56 @@ name: Node.js Package
 on:
   release:
     types: [created]
-jobs:
-  build:
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 16
+        - run: npm ci
+        - run: npm test
+
+  npm:
+    name: Publish to npm
+    needs: build
     runs-on: ubuntu-latest
+      permissions:
+      packages: write
+      contents: read
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
-  npm:
-        name: Publish to npm
-        needs: build
-        runs-on: ubuntu-latest
-        permissions:
-          packages: write
-          contents: read
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-                  registry-url: 'https://registry.npmjs.org'
-            - name: Install npm dependencies
-              run: npm ci
-              
-            - name: Publish to npm registry
-              run: |
-                # Change publish registry
-                echo "$(jq '.publishConfig.registry = "https://registry.npmjs.org"' package.json)" > package.json
-                # Publish package
-                npm publish --access public
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            node-version: 16
+            registry-url: 'https://registry.npmjs.org'
+      - name: Install npm dependencies
+        run: npm ci
+        
+      - name: Publish to npm registry
+        run: |
+          # Change publish registry
+          echo "$(jq '.publishConfig.registry = "https://registry.npmjs.org"' package.json)" > package.json
+          # Publish package
+          npm publish --access public
+        env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
     gp:
-        name: Publish to gp
-        needs: build
-        runs-on: ubuntu-latest
-        permissions:
-            contents: read
-            packages: write
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-                  registry-url: 'https://npm.pkg.github.com'            
+      name: Publish to gp
+      needs: build
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        packages: write
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://npm.pkg.github.com'            
             - name: Install npm dependencies
               run: npm ci
             
