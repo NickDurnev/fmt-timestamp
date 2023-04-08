@@ -1,14 +1,24 @@
 {
-  "name": "task4-lit",
+  "name": "date-formatter",
   "version": "1.0.0",
   "description": "Time formatter using Lit.",
-  "main": "index.js",
-  "publishConfig": {"registry": "https://npm.pkg.github.com/@NickDurnev"},
   "type": "module",
+  "main": "./dist/date-formatter.umd.cjs",
+  "module": "./dist/date-formatter.js",
+  "exports": {
+    ".": {
+      "import": "./dist/date-formatter.js",
+      "require": "./dist/date-formatter.umd.cjs"
+    }
+  },
+"publishConfig": {
+  "registry": "https://npm.pkg.github.com/@nick_durnev"
+},
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "start": "web-dev-server"
+    "start": "web-dev-server",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
