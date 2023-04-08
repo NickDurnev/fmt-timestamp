@@ -11,9 +11,6 @@
       "require": "./dist/date-formatter.umd.cjs"
     }
   },
-"publishConfig": {
-  "registry": "https://npm.pkg.github.com/@nick_durnev"
-},
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage",
