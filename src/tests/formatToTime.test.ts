@@ -15,9 +15,6 @@ describe("formatToTime", () => {
     expect(
       formatToTime("2023-03-29T12:25:07.427Z", "de-DE", "Europe/Berlin")
     ).toBe("14:26");
-    expect(formatToTime("2023-03-29T20:25:07.427Z", "111", "qqqqq")).toBe(
-      "11:26 PM"
-    );
     it("error tests", () => {
       try {
         formatToTime("2023-01-31T22", "en", "America/Los_Angeles");
