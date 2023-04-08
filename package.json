@@ -17,6 +17,9 @@
     "start": "web-dev-server",
     "build": "vite build"
   },
+  "publishConfig": {
+   "@nick_durnev:registry": "https://npm.pkg.github.com"
+ },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickDurnev/time-formatter-WC-package.git"
