@@ -1,0 +1,1 @@
+"use strict";const s=require("./isValidLocale-47677d8d.cjs"),l=require("./isValidTimeZone-5f79ce56.cjs"),c=(o,r,a)=>{try{const e=s.isValidLocale(r),i=l.isValidTimeZone(a),t=new Date(o),n={day:"numeric",month:"short",year:t.getFullYear()===new Date().getFullYear()?void 0:"2-digit",timeZone:i};return new Intl.DateTimeFormat(e,n).format(t)}catch{return null}};module.exports=c;
