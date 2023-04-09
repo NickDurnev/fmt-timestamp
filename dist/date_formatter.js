@@ -1,7 +1,7 @@
 import { css as J, LitElement as Q, html as X } from "lit";
 import tt from "./formatToRelative.js";
 import et from "./formatToShort.js";
-import it from "./formatToTime.js";
+import { f as it } from "./roundTime-2327a0f0.js";
 import "./isValidLocale-d87d3605.js";
 import "./isValidTimeZone-434ac3c1.js";
 /**

@@ -10,6 +10,7 @@ export default defineConfig({
         formatToRelative: "src/formatData/formatToRelative.ts",
         formatToShort: "src/formatData/formatToShort.ts",
         formatToTime: "src/formatData/formatToTime.ts",
+        index: "src/index.ts",
       },
       name: "date_formatter",
     },
