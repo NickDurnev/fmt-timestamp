@@ -1,6 +1,6 @@
 {
   "name": "@nick_durnev/time-formatter",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Time formatter using Lit.",
   "type": "module",
   "files": [
