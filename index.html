@@ -4,18 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Test page</title>
   </head>
   <body>
+    <date-formatter locale="uk-UA" timezone="Europe/Kiev"
+      >2023-03-29T12:25:07.427Z</date-formatter
+    >
+    <date-formatter locale="en-US" timezone="America/Los_Angeles"
+      >2023-03-29T12:25:07.427Z</date-formatter
+    >
+    <date-formatter locale="qq" timezone="123"
+      >2023-03-29T12:25:07.427Z</date-formatter
+    >
+    <date-formatter>qqqq</date-formatter>
     <script type="importmap">
       {
         "imports": {
           "lit": "https://cdn.jsdelivr.net/npm/lit@2.7.0/+esm",
-          "time-formatter": "https://unpkg.com/@nick_durnev/time-formatter@1.0.5",
+          "time-formatter": "https://unpkg.com/@nick_durnev/time-formatter@1.0.7/dist/index.js"
         }
       }
     </script>
     <script type="module" src="./main.js"></script>
-    <date-formatter>2023-03-29T12:25:07.427Z</date-formatter>
   </body>
 </html>

@@ -24,8 +24,8 @@ export class DateFormatter extends LitElement {
   @property({ attribute: "locale", reflect: true })
   locale: string = "";
 
-  @property({ attribute: "timeZone", reflect: true })
-  timeZone: string = "";
+  @property({ attribute: "timezone", reflect: true })
+  timezone: string = "";
 
   @state()
   private _slottedContent: string = "";
@@ -41,7 +41,7 @@ export class DateFormatter extends LitElement {
     this._formattedData = formatFuncs[this._functionIndex](
       this._slottedContent,
       this.locale,
-      this.timeZone
+      this.timezone
     );
     this.requestUpdate();
   }
@@ -50,7 +50,8 @@ export class DateFormatter extends LitElement {
     this._slottedContent = this._slottedNodes[0]?.textContent?.trim();
     this._formattedData = formatFuncs[this._functionIndex](
       this._slottedContent,
-      this.locale
+      this.locale,
+      this.timezone
     );
   }
 
@@ -74,6 +75,7 @@ export class DateFormatter extends LitElement {
       align-items: center;
       justify-content: space-between;
       margin: 0 auto;
+      margin-bottom:10px;
     }
     div > p {
       margin-bottom: 10px;
@@ -101,7 +103,7 @@ export class DateFormatter extends LitElement {
     }
 
     .hidden {
-      display:none;
+      display: none;
       /* opacity: 0;
       transform: scale(0.5); */
     }
@@ -129,14 +131,12 @@ export class DateFormatter extends LitElement {
       <p class=${classMap(tooltipClasses)}>
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </p>
-      <button
-        @click="${this._changeFormat}"
-      >
+      <button @click="${this._changeFormat}">
         <p class=${classMap(textClasses)} title=${this._slottedContent}>
           ${this._formattedData ? this._formattedData : this._slottedContent}
         </p>
       </button>
-       <!-- <button
+      <!-- <button
         @mouseenter="${this._toggleShowed}"
         @mouseleave="${this._toggleShowed}"
       >

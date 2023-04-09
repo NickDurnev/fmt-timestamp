@@ -9,7 +9,7 @@ describe("roundTime", () => {
     expect(
       roundTime("2023-01-31T22:59:30.427Z")
     ).toEqual(new Date("2023-01-31T23:00:00.427Z"));
-       expect(
+      expect(
       roundTime("2023-01-31T22:59:00.427Z")
     ).toEqual(new Date("2023-01-31T22:59:00.427Z"));
   });

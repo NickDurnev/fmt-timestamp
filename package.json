@@ -1,7 +1,7 @@
 {
   "name": "@nick_durnev/time-formatter",
-  "version": "1.0.6",
-  "description": "Time formatter using Lit.",
+  "version": "1.0.7",
+  "description": "Time formatter webcomponents, developed using Lit.",
   "type": "module",
   "files": [
     "dist"
