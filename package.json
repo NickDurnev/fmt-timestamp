@@ -6,13 +6,10 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/date_formatter.umd.cjs",
   "module": "./dist/date_formatter.js",
-  "types": "./dist/formatData/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/date_formatter.js",
-      "require": "./dist/date_formatter.umd.cjs"
+      "import": "./dist/date_formatter.js"
     }
   },
   "scripts": {
