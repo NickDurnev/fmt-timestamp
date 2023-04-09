@@ -2,7 +2,7 @@ import { isValidLocale, isValidTimeZone } from "../isValid";
 import funcType from "./funcType";
 
 // This function formats a given input string to a short form of data (e.g. 31 Jan 22) using the specified locale.
-export const formatToShort: funcType = (input, locale, timeZone) => {
+const formatToShort: funcType = (input, locale, timeZone) => {
   try {
     const validLocale = isValidLocale(locale); // check if passed locale is valid
     const validTimeZone = isValidTimeZone(timeZone); // check if passed timeZone is valid
@@ -22,3 +22,5 @@ export const formatToShort: funcType = (input, locale, timeZone) => {
     return null;
   }
 };
+
+export default formatToShort;

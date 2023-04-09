@@ -1,6 +1,6 @@
 
 // This function takes a string input representing a date and time and rounds it up to the next minute.
-export const roundTime = (input: string): Date => {
+const roundTime = (input: string): Date => {
   // create a new Date object based on the input string.
   const date: Date = new Date(input);
   
@@ -27,3 +27,4 @@ export const roundTime = (input: string): Date => {
   return date;
 };
 
+export default roundTime;

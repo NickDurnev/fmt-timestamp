@@ -2,7 +2,7 @@ import {isValidLocale} from '../isValid'
 import funcType from "./funcType";
 
 // This function formats a given input string to a relative form of data (e.g. 2 days ago) using the specified locale.
-export const formatRelativeTime: funcType = (input, locale) => {
+const formatRelativeTime: funcType = (input, locale) => {
   try {
       const validLocale = isValidLocale(locale); // check if passed locale is valid
   const date: Date = new Date(input); // convert the input string to a Date object
@@ -58,5 +58,7 @@ export const formatRelativeTime: funcType = (input, locale) => {
     return null
   }
 };
+
+export default formatRelativeTime;
 
 

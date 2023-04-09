@@ -1,19 +1,20 @@
 // vite.config.js
-import { resolve } from "path";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
     lib: {
-      // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, "./main.js"),
-      name: "date-formatter",
-      // the proper extensions will be added
-      fileName: "date-formatter",
+      entry: {
+        date_formatter: "src/date_formatter.ts",
+        formatToRelative: "src/formatData/formatToRelative.ts",
+        formatToShort: "src/formatData/formatToShort.ts",
+        formatToTime: "src/formatData/formatToTime.ts",
+      },
+      name: "date_formatter",
     },
+    plugins: [dts()],
     rollupOptions: {
-      // make sure to externalize deps that shouldn't be bundled
-      // into your library
       external: ["lit", "@web/dev-server-esbuild"],
       output: {},
     },

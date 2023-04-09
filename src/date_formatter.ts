@@ -7,7 +7,7 @@ import {
 } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 
-import { formatRelativeTime, formatToShort, formatToTime } from "./formatData";
+import { formatToShort, formatRelativeTime, formatToTime } from "./formatData";
 import funcType from "./formatData/funcType";
 
 const formatFuncs: funcType[] = [
@@ -101,13 +101,14 @@ export class DateFormatter extends LitElement {
     }
 
     .hidden {
-      opacity: 0;
-      transform: scale(0.5);
+      display:none;
+      /* opacity: 0;
+      transform: scale(0.5); */
     }
-    .showed {
+    /* .showed {
       opacity: 1;
       transform: scale(1);
-    }
+    } */
     .invalid {
       text-decoration-line: underline;
       text-decoration-style: wavy;
