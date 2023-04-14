@@ -8,6 +8,7 @@ import {
 import { classMap } from "lit/directives/class-map.js";
 
 import { formatToShort, formatRelativeTime, formatToTime } from "./formatData";
+import { localeChecking, timeZoneChecking } from "./attrsChecking";
 import funcType from "./formatData/funcType";
 
 const formatFuncs: funcType[] = [
@@ -16,132 +17,95 @@ const formatFuncs: funcType[] = [
   formatToTime,
 ];
 
+enum MyEnum {
+  formatRelativeTime,
+  formatToShort,
+  formatToTime,
+}
+
 @customElement("date-formatter")
 export class DateFormatter extends LitElement {
   @queryAssignedNodes()
-  private _slottedNodes!: NodeListOf<HTMLElement>;
+  private _slottedNodes!: NodeList;
 
-  @property({ attribute: "locale", reflect: true })
+  @property({
+    attribute: "locale",
+    reflect: true,
+  })
   locale: string = "";
 
-  @property({ attribute: "timezone", reflect: true })
-  timezone: string = "";
+  @property({ attribute: "timezone" })
+  timezone: string = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   @state()
   private _slottedContent: string = "";
   private _formattedData: string = "";
-  private _functionIndex: number = 0;
-  //additional animation state
-  private _showedTooltip: boolean = false;
+  private formatMode: MyEnum = MyEnum.formatRelativeTime;
 
-  private _changeFormat(e: Event): void {
-    this._functionIndex === formatFuncs.length - 1
-      ? (this._functionIndex = 0)
-      : this._functionIndex++;
-    this._formattedData = formatFuncs[this._functionIndex](
+  willUpdate(changedProperties: Map<string, any>) {
+    if (changedProperties.has("locale")) {
+      const newValue = localeChecking(this.locale); // Check property value
+      this.locale = newValue; // Set modified value
+    }
+    if (changedProperties.has("timezone")) {
+      const newValue = timeZoneChecking(this.timezone); // Check property value
+      this.timezone = newValue; // Set modified value
+    }
+    this._formattedData = formatFuncs[this.formatMode](
       this._slottedContent,
       this.locale,
       this.timezone
     );
+  }
+
+  private _changeFormat(e: Event): void {
+    this.formatMode =
+      (this.formatMode + 1) % (Object.keys(MyEnum).length - 3);
     this.requestUpdate();
   }
 
   private _handleSlotChange(): void {
     this._slottedContent = this._slottedNodes[0]?.textContent?.trim();
-    this._formattedData = formatFuncs[this._functionIndex](
-      this._slottedContent,
-      this.locale,
-      this.timezone
-    );
   }
 
-  //additional animation method
-  private _toggleShowed(): void {
-    this._showedTooltip = !this._showedTooltip;
-    this.requestUpdate();
+  protected render() {
+    const textClasses = {
+      invalid: !this._formattedData,
+    };
+    return html`
+      <slot class="hidden-slot" @slotchange="${this._handleSlotChange}"></slot>
+      <button @click="${this._changeFormat}">
+        <p class=${classMap(textClasses)} title=${this._slottedContent}>
+          ${this._formattedData ?? this._slottedContent}
+        </p>
+      </button>
+    `;
   }
 
   static styles = css`
-    * {
-      box-sizing: border-box;
-    }
-    p {
-      margin: 0;
-    }
-    div {
-      width: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      margin: 0 auto;
-      margin-bottom:10px;
-    }
-    div > p {
-      margin-bottom: 10px;
-      padding: 10px;
-      background-color: #cc7cd5;
-      color: #ece9ee;
-      transition: all 300ms linear;
-      border-radius: 10px;
-    }
-    button {
-      min-width: 120px;
-      padding: 20px;
-      background-color: #bb9dcd;
-      color: #ece9ee;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 20px;
-      transition: background-color 300ms linear;
-    }
-
-    button:hover,
-    button:focus {
-      background-color: #73498c;
-    }
-
-    .hidden {
-      display: none;
-      /* opacity: 0;
-      transform: scale(0.5); */
-    }
-    /* .showed {
-      opacity: 1;
-      transform: scale(1);
-    } */
     .invalid {
       text-decoration-line: underline;
       text-decoration-style: wavy;
       text-decoration-color: #d73774;
     }
-  `;
+    .hidden-slot {
+      display: none;
+    }
+    button {
+      cursor: pointer;
+      padding: var(--btn-padding);
+      background-color: var(--btn-background);
+      color: var(--btn-color);
+      border: var(--btn-border);
+      font-size: var(--btn-fontSize);
+      border-radius: var(--btn-borderRadius);
+      transition: var(--btn-transition);
+    }
 
-  protected render() {
-    // additional animation classes
-    const tooltipClasses = {
-      hidden: this._showedTooltip === false,
-      showed: this._showedTooltip,
-    };
-    const textClasses = {
-      invalid: !this._formattedData,
-    };
-    return html`<div>
-      <p class=${classMap(tooltipClasses)}>
-        <slot @slotchange="${this._handleSlotChange}"></slot>
-      </p>
-      <button @click="${this._changeFormat}">
-        <p class=${classMap(textClasses)} title=${this._slottedContent}>
-          ${this._formattedData ? this._formattedData : this._slottedContent}
-        </p>
-      </button>
-      <!-- <button
-        @mouseenter="${this._toggleShowed}"
-        @mouseleave="${this._toggleShowed}"
-      >
-        Toggle Tooltip
-      </button> -->
-    </div>`;
-  }
+    button:hover,
+    button:focus {
+      background-color: var(--btn-hoverBackground);
+      color: var(--btn-hoverColor);
+    }
+  `;
 }

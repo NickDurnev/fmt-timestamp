@@ -8,24 +8,27 @@
     <title>Test page</title>
   </head>
   <body>
-    <date-formatter locale="uk-UA" timezone="Europe/Kiev"
-      >2023-03-29T12:25:07.427Z</date-formatter
-    >
-    <date-formatter locale="en-US" timezone="America/Los_Angeles"
-      >2023-03-29T12:25:07.427Z</date-formatter
-    >
-    <date-formatter locale="qq" timezone="123"
-      >2023-03-29T12:25:07.427Z</date-formatter
-    >
-    <date-formatter>qqqq</date-formatter>
-    <script type="importmap">
+    <div>
+      <date-formatter locale="uk-UA" timezone="Europe/Kiev"
+        >2023-04-14T20:39:30.427Z</date-formatter
+      >
+      <!-- <date-formatter locale="en-US" timezone="America/Los_Angeles"
+        >2023-03-29T12:25:07.427Z</date-formatter
+      >
+      <date-formatter locale="qq" timezone="123"
+        >2023-03-29T12:25:07.427Z</date-formatter
+      >
+      <date-formatter>qqqq</date-formatter> -->
+    </div>
+    <script type="module" src="./dist/date_formatter.js"></script>
+    <!-- <script type="importmap">
       {
         "imports": {
           "lit": "https://cdn.jsdelivr.net/npm/lit@2.7.0/+esm",
           "time-formatter": "https://unpkg.com/@nick_durnev/time-formatter@1.0.7/dist/index.js"
         }
       }
-    </script>
+    </script> -->
     <script type="module" src="./main.js"></script>
   </body>
 </html>
