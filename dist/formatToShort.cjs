@@ -1,1 +1,0 @@
-"use strict";const n=(r,e,o)=>{try{const t=new Date(r),a={day:"numeric",month:"short",year:t.getFullYear()===new Date().getFullYear()?void 0:"2-digit",timeZone:o};return new Intl.DateTimeFormat(e,a).format(t)}catch{return null}};module.exports=n;

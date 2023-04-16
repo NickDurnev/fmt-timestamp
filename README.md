@@ -65,11 +65,13 @@ Examples of usage
 ```javascript
 formatRelativeTime("2023-04-04T18:24:10.427Z", "en-GB");
 //will return "10 seconds ago"
-formatToShort("2022-04-10T22:32:20.427Z", "en-GB", "Europe/Kiev");
+formatToShort("2022-04-10T22:32:20.427Z", "en-GB", "Europe/Kiev", 2023);
 //will return "11 Apr 22"
 formatToTime("2023-03-29T20:25:07.427Z", "en", "America/Los_Angeles");
 //will return "1:26 PM"
 ```
+
+## Styling
 
 ## Development
 

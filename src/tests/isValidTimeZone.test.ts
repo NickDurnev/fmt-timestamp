@@ -1,18 +1,18 @@
 
 import { expect, describe, it, vi } from "vitest";
-import { isValidTimeZone } from '../isValid';
+import { timeZoneChecking } from '../attrsChecking/timeZoneChecking';
 
-describe("isValidTimeZone", () => {
+describe("timeZoneChecking", () => {
     const mockFn = vi.fn().mockImplementation(() => Intl.DateTimeFormat().resolvedOptions().timeZone);
     const brwoserTimeZone = mockFn();
     it('isValid timeZones tests', () => {
-        expect(isValidTimeZone('America/New_York')).toBe('America/New_York');
-        expect(isValidTimeZone('Europe/Kyiv')).toBe('Europe/Kyiv');
-        expect(isValidTimeZone('Europe/Berlin')).toBe('Europe/Berlin');
+        expect(timeZoneChecking('America/New_York')).toBe('America/New_York');
+        expect(timeZoneChecking('Europe/Kyiv')).toBe('Europe/Kyiv');
+        expect(timeZoneChecking('Europe/Berlin')).toBe('Europe/Berlin');
     });
     it('Error tests', () => {
-        expect(isValidTimeZone('Invalid/Timezone')).toBe(brwoserTimeZone);
-        expect(isValidTimeZone('abcabqwewqe')).toBe(brwoserTimeZone);
-        expect(isValidTimeZone('random123')).toBe(brwoserTimeZone);
+        expect(timeZoneChecking('Invalid/Timezone')).toBe(brwoserTimeZone);
+        expect(timeZoneChecking('abcabqwewqe')).toBe(brwoserTimeZone);
+        expect(timeZoneChecking('random123')).toBe(brwoserTimeZone);
     })
 })

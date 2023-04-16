@@ -1,23 +1,17 @@
 // vite.config.js
+import { resolve } from "path";
 import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
+    outDir: "dist",
     lib: {
-      entry: {
-        date_formatter: "src/date_formatter.ts",
-        formatToRelative: "src/formatData/formatToRelative.ts",
-        formatToShort: "src/formatData/formatToShort.ts",
-        formatToTime: "src/formatData/formatToTime.ts",
-        index: "src/index.ts",
-      },
-      name: "date_formatter",
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "fmt-timestamp",
+      fileName: "index",
     },
-    plugins: [dts()],
     rollupOptions: {
-      external: ["lit", "@web/dev-server-esbuild"],
-      output: {},
+      external: ["lit"],
     },
   },
 });

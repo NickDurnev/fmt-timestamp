@@ -1,4 +1,4 @@
-import { html, css, LitElement } from "lit";
+import { html, css, LitElement } from "lit-element";
 import {
   customElement,
   property,
@@ -11,20 +11,17 @@ import { formatToShort, formatRelativeTime, formatToTime } from "./formatData";
 import { localeChecking, timeZoneChecking } from "./attrsChecking";
 import funcType from "./formatData/funcType";
 
-const formatFuncs: funcType[] = [
-  formatRelativeTime,
-  formatToShort,
-  formatToTime,
-];
-
 enum MyEnum {
   formatRelativeTime,
   formatToShort,
   formatToTime,
 }
+const formatFuncs: funcType[] = [formatRelativeTime];
 
-@customElement("date-formatter")
-export class DateFormatter extends LitElement {
+const currentYear = new Date().getFullYear();
+
+@customElement("fmt-timestamp")
+export class FmtTimestamp extends LitElement {
   @queryAssignedNodes()
   private _slottedNodes!: NodeList;
 
@@ -54,13 +51,18 @@ export class DateFormatter extends LitElement {
     this._formattedData = formatFuncs[this.formatMode](
       this._slottedContent,
       this.locale,
-      this.timezone
+      this.timezone,
+      currentYear
     );
   }
 
   private _changeFormat(e: Event): void {
-    this.formatMode =
-      (this.formatMode + 1) % (Object.keys(MyEnum).length - 3);
+    this.formatMode = (this.formatMode + 1) % (Object.keys(MyEnum).length - 3);
+    if (formatFuncs.length < 3) {
+      this.formatMode === 2
+        ? formatFuncs.push(formatToShort)
+        : formatFuncs.push(formatToTime);
+    }
     this.requestUpdate();
   }
 

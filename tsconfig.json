@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "target": "es2019",
@@ -6,11 +7,12 @@
     "lib": ["es2019", "dom"],
     "declaration": true,
     "declarationMap": true,
+    "declarationDir": "dist/types",
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "esModuleInterop": true,
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dev"
   },
   "exclude": ["src/tests/*.test.ts", "./dist/**.*", "./dist/*"]
 }

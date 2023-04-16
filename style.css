@@ -28,11 +28,11 @@ div {
   flex-direction: column;
 }
 
-date-formatter + date-formatter {
+fmt-timestamp + fmt-timestamp {
   margin-top: 20px;
 }
 
-date-formatter {
+fmt-timestamp {
   display: block;
   margin: 0 auto;
   --btn-padding: 10px;
