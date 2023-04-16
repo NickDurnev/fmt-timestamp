@@ -5,15 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script type="module" src="./dist/index.js"></script>
     <title>Test page</title>
   </head>
   <body>
     <div>
       <fmt-timestamp locale="uk-UA" timezone="Europe/Kiev"
-      >2023-01-31T22:32:20.427Z</fmt-timestamp
+        >2022-01-31T22:32:20.427Z</fmt-timestamp
       >
+      <fmt-timestamp locale="uk-UA" timezone="Europe/Kiev">2024-02-01T22:32:20.427Z</fmt-timestamp>
+    <fmt-timestamp locale="qwe" timezone="111">2023-03-29T12:25:07.427Z</fmt-timestamp>
     </div>
-    <!-- <script type="module" src="./main.js"></script> -->
+    <script type="importmap">
+      {
+        "imports": {
+          "lit": "https://cdn.jsdelivr.net/npm/lit@2.7.0/+esm",
+          "fmt-timestamp": "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.2"
+        }
+      }
+    </script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

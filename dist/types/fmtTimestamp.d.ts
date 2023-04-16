@@ -1,4 +1,4 @@
-import { LitElement } from "lit-element";
+import { LitElement } from "lit";
 export declare class FmtTimestamp extends LitElement {
     private _slottedNodes;
     locale: string;
@@ -10,6 +10,6 @@ export declare class FmtTimestamp extends LitElement {
     private _changeFormat;
     private _handleSlotChange;
     protected render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit-element").CSSResult;
+    static styles: import("lit").CSSResult;
 }
 //# sourceMappingURL=fmtTimestamp.d.ts.map

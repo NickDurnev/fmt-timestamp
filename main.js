@@ -2,7 +2,7 @@ import {
   formatRelativeTime,
   formatToShort,
   formatToTime,
-} from "https://unpkg.com/@nick_durnev/time-formatter@1.0.7/dist/index.js";
+} from "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.1/dist/index.js";
 
 console.log(formatRelativeTime("2023-03-29T12:25:07.427Z"));
 console.log(

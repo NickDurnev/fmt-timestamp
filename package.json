@@ -1,6 +1,6 @@
 {
   "name": "@nick_durnev/fmt-timestamp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "fmt-timestamp webcomponent, developed using Lit.",
   "type": "module",
   "types": "./dist/types/index.d.ts",

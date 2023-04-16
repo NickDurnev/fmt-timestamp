@@ -5,7 +5,7 @@
 Install libraries from npm
 
 ```bash
-npm i @nick_durnev/time-formatter
+npm i @nick_durnev/fmt-timestamp
 ```
 
 ```bash
@@ -19,31 +19,31 @@ or add links to CDN
   {
     "imports": {
       "lit": "https://cdn.jsdelivr.net/npm/lit@2.7.0/+esm",
-      "time-formatter": "https://unpkg.com/@nick_durnev/time-formatter@1.0.7/dist/index.js"
+      "fmt-timestamp": "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.2"
     }
   }
 </script>
 ```
 
-Add <date-formatter> tag in you markup with any ISO 8601 timestamp string. This component will format timestamp on click in 3 forms:
+Add <fmt-timestamp> tag in you markup with any ISO 8601 timestamp string. This component will format timestamp on click in 3 forms:
 
 - Relative date (2 days ago);
 - Time (15:26);
 - Short date (Mar 29), shows year only if passed year isn't current;
 
 ```html
-<date-formatter>2023-03-29T12:25:07.427Z</date-formatter>
+<fmt-timestamp>2023-03-29T12:25:07.427Z</fmt-timestamp>
 ```
 
 You can pass in it 2 attributes - <span style="color:purple">locale</span> and <span style="color:purple">timezone</span> to define time correctly for your region. If you pass uncorrect attributes - componnet will use locale and timezone from your browser.
 
 ```html
-<date-formatter locale="uk-UA" timezone="Europe/Kiev"
-  >2023-03-29T12:25:07.427Z</date-formatter
+<fmt-timestamp locale="uk-UA" timezone="Europe/Kiev"
+  >2023-03-29T12:25:07.427Z</fmt-timestamp
 >
 //It will work too
-<date-formatter locale="qwe" timezone="111"
-  >2023-03-29T12:25:07.427Z</date-formatter
+<fmt-timestamp locale="qwe" timezone="111"
+  >2023-03-29T12:25:07.427Z</fmt-timestamp
 >
 ```
 
@@ -57,7 +57,7 @@ Just import them in your JS file in this way.
   formatRelativeTime,
   formatToShort,
   formatToTime,
-} from "https://unpkg.com/@nick_durnev/time-formatter@1.0.7/dist/indexjs";
+} from "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.2/dist/index.js";
 ```
 
 Examples of usage
@@ -72,6 +72,34 @@ formatToTime("2023-03-29T20:25:07.427Z", "en", "America/Los_Angeles");
 ```
 
 ## Styling
+
+You can add styles for component and it's button from external css file.
+
+To style component container just pass styles as usually using <span style="color:purple">fmt-timestamp</span> selector
+
+```css
+fmt-timestamp {
+  display: block;
+  margin: 0 auto;
+  ...;
+}
+```
+
+If you want customize button, I am sure you will want, just use selectors. You will understand what do they mean from names.
+
+```css
+fmt-timestamp {
+  --btn-padding: 10px;
+  --btn-background: #bb9dcd;
+  --btn-color: #ece9ee;
+  --btn-hoverBackground: #73498c;
+  --btn-hoverColor: #d2d0d3;
+  --btn-border: none;
+  --btn-borderRadius: 10px;
+  --btn-fontSize: 20px;
+  --btn-transition: background-color 300ms linear;
+}
+```
 
 ## Development
 
