@@ -17,7 +17,7 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "start": "vite --port 3000 --host 0.0.0.0 --open --force",
-    "build": "vite build"
+    "build": "vite build && tsc"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
