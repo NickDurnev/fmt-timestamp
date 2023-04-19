@@ -5,7 +5,6 @@ import {
   state,
   queryAssignedNodes,
 } from "lit/decorators.js";
-import { classMap } from "lit/directives/class-map.js";
 
 import { formatToShort, formatRelativeTime, formatToTime } from "./formatData";
 import { localeChecking, timeZoneChecking } from "./attrsChecking";
@@ -22,7 +21,7 @@ const currentYear = new Date().getFullYear();
 
 @customElement("fmt-timestamp")
 export class FmtTimestamp extends LitElement {
-  @queryAssignedNodes()
+  @queryAssignedNodes({ flatten: true })
   private _slottedNodes!: NodeList;
 
   @property({
@@ -54,6 +53,19 @@ export class FmtTimestamp extends LitElement {
       this.timezone,
       currentYear
     );
+    if (this._slottedNodes[0]) {
+      this._slottedNodes[0].textContent = `${
+        this._formattedData ?? this._slottedContent
+      }`;
+    }
+    !this._formattedData
+      ? this.classList.add("invalid")
+      : this.classList.remove("invalid");
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("click", this._changeFormat);
   }
 
   private _changeFormat(e: Event): void {
@@ -71,43 +83,22 @@ export class FmtTimestamp extends LitElement {
   }
 
   protected render() {
-    const textClasses = {
-      invalid: !this._formattedData,
-    };
     return html`
-      <slot class="hidden-slot" @slotchange="${this._handleSlotChange}"></slot>
-      <button @click="${this._changeFormat}">
-        <p class=${classMap(textClasses)} title=${this._slottedContent}>
-          ${this._formattedData ?? this._slottedContent}
-        </p>
-      </button>
+      <slot
+        title=${this._slottedContent}
+        @slotchange="${this._handleSlotChange}"
+      ></slot>
     `;
   }
 
   static styles = css`
-    .invalid {
+    :host {
+      cursor: pointer;
+    }
+    :host(.invalid) {
       text-decoration-line: underline;
       text-decoration-style: wavy;
       text-decoration-color: #d73774;
-    }
-    .hidden-slot {
-      display: none;
-    }
-    button {
-      cursor: pointer;
-      padding: var(--btn-padding);
-      background-color: var(--btn-background);
-      color: var(--btn-color);
-      border: var(--btn-border);
-      font-size: var(--btn-fontSize);
-      border-radius: var(--btn-borderRadius);
-      transition: var(--btn-transition);
-    }
-
-    button:hover,
-    button:focus {
-      background-color: var(--btn-hoverBackground);
-      color: var(--btn-hoverColor);
     }
   `;
 }

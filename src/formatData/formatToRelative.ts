@@ -7,10 +7,12 @@ const formatRelativeTime: funcType = (input, locale) => {
     const diff = date.getTime() - new Date().getTime(); // calculate the time difference between the input date and the current date
     const sign = Math.sign(diff);
     const abs = Math.abs(diff);
+    const msInMonth = 1000 * 60 * 60 * 24 * 30;
+    const msInYear = 1000 * 60 * 60 * 24 * 365;
 
     const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" }); // create a new Intl.RelativeTimeFormat object with the valid locale and auto numeric style
 
-    const seconds = Math.abs((abs / 1000));
+    const seconds = abs / 1000;
     // if the time difference is less than 60 seconds, return the relative time string for seconds
     if (seconds < 60) {
       return rtf.format(sign * seconds, "second");
@@ -44,7 +46,7 @@ const formatRelativeTime: funcType = (input, locale) => {
     }
 
     // calculate the number of months in the time difference
-    const months = Math.round(abs / 2592000000);
+    const months = Math.round(abs / msInMonth);
 
     // if the time difference is less than 12 months, return the relative time string for months
     if (months < 12) {
@@ -52,7 +54,7 @@ const formatRelativeTime: funcType = (input, locale) => {
     }
 
     // calculate the number of years in the time difference
-    const years = (abs / 31536000000) >> 0; // calculate the number of years in the time difference
+    const years = (abs / msInYear) >> 0; // calculate the number of years in the time difference
     // return the relative time string for years
     return rtf.format(sign * years, "years");
   } catch (error) {

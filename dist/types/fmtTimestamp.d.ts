@@ -7,6 +7,7 @@ export declare class FmtTimestamp extends LitElement {
     private _formattedData;
     private formatMode;
     willUpdate(changedProperties: Map<string, any>): void;
+    connectedCallback(): void;
     private _changeFormat;
     private _handleSlotChange;
     protected render(): import("lit-html").TemplateResult<1>;

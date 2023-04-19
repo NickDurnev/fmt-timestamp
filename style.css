@@ -35,13 +35,16 @@ fmt-timestamp + fmt-timestamp {
 fmt-timestamp {
   display: block;
   margin: 0 auto;
-  --btn-padding: 10px;
-  --btn-background: #bb9dcd;
-  --btn-color: #ece9ee;
-  --btn-hoverBackground: #73498c;
-  --btn-hoverColor: #d2d0d3;
-  --btn-border: none;
-  --btn-borderRadius: 10px;
-  --btn-fontSize: 20px;
-  --btn-transition: background-color 300ms linear;
+  padding: 20px;
+  background-color: #bb9dcd;
+  color: #ece9ee;
+  border-radius: 10px;
+  font-size: 20px;
+  transition: background-color 300ms linear;
 }
+
+ fmt-timestamp:hover,
+ fmt-timestamp:focus {
+   background-color: #73498c;
+   color: #d2d0d3;
+ }

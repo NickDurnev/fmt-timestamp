@@ -1,11 +1,9 @@
-import { roundTime } from "./index";
 import funcType from "./funcType";
 
 // This function formats a given input string to a time (e.g. 3:26 PM) using the specified locale and timeZone.
 const formatToTime: funcType = (input, locale, timeZone) => {
   try {
-    const roundedDate = roundTime(input); // round the input date to the nearest minute using the roundTime helper function.
-    // specify the options to use when formatting the time string.
+    const date: Date = new Date(input); // convert the input string to a Date object
     const timeOptions: Intl.DateTimeFormatOptions = {
       hour: "numeric",
       minute: "numeric",
@@ -16,7 +14,7 @@ const formatToTime: funcType = (input, locale, timeZone) => {
     const timeString: string = new Intl.DateTimeFormat(
       locale, // the locale to use when formatting the date.
       timeOptions // the options to use when formatting the time string.
-    ).format(roundedDate);
+    ).format(date);
 
     // return the formatted time
     return timeString;

@@ -5,16 +5,16 @@ describe("formatToTime", () => {
   it("positive tests", () => {
     expect(
       formatToTime("2023-03-29T12:25:07.427Z", "en", "America/Los_Angeles")
-    ).toBe("5:26 AM");
+    ).toBe("5:25 AM");
     expect(
       formatToTime("2023-03-29T20:25:07.427Z", "en", "America/Los_Angeles")
-    ).toBe("1:26 PM");
+    ).toBe("1:25 PM");
     expect(
       formatToTime("2023-03-29T12:25:07.427Z", "uk-UA", "Europe/Kiev")
-    ).toBe("15:26");
+    ).toBe("15:25");
     expect(
       formatToTime("2023-03-29T12:25:07.427Z", "de-DE", "Europe/Berlin")
-    ).toBe("14:26");
+    ).toBe("14:25");
     it("error tests", () => {
       try {
         formatToTime("2023-01-31T22", "en", "America/Los_Angeles");

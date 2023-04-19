@@ -3,7 +3,7 @@ import funcType from "./funcType";
 // This function formats a given input string to a short form of data (e.g. 31 Jan 22) using the specified locale.
 const formatToShort: funcType = (input, locale, timeZone,currentYear) => {
   try {
-    const date = new Date(input); // get the current date
+    const date = new Date(input); // convert the input string to a Date object
     const options: Intl.DateTimeFormatOptions = {
       day: "numeric",
       month: "short", // use abbreviated month names (e.g. Jan, Feb)
