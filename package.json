@@ -1,6 +1,6 @@
 {
   "name": "@nick_durnev/fmt-timestamp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "fmt-timestamp webcomponent, developed using Lit.",
   "type": "module",
   "types": "./dist/types/index.d.ts",
@@ -16,8 +16,9 @@
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "start": "vite --port 3000 --host 0.0.0.0 --open --force",
-    "build": "vite build && tsc"
+    "start": "vite",
+    "build": "vite build && tsc",
+    "dev": "tsc -w & npm start"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

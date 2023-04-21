@@ -6,6 +6,7 @@ import {
   queryAssignedNodes,
 } from "lit/decorators.js";
 
+import { MemoizedDateTimeFormat } from "./cache/memoizeFormatConstructor";
 import { formatToShort, formatRelativeTime, formatToTime } from "./formatData";
 import { localeChecking, timeZoneChecking } from "./attrsChecking";
 import funcType from "./formatData/funcType";
@@ -31,7 +32,7 @@ export class FmtTimestamp extends LitElement {
   locale: string = "";
 
   @property({ attribute: "timezone" })
-  timezone: string = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  timezone: string = MemoizedDateTimeFormat(undefined, {},'defaultTimeZone').resolvedOptions().timeZone;
 
   @state()
   private _slottedContent: string = "";

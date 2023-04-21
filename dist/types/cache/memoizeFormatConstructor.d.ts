@@ -12,6 +12,8 @@ type funcType = {
 type cachedFuncType = funcType & {
     cache: Map<string, any>;
 };
+type HigherOrderFunction = (func: any) => cachedFuncType;
+export declare const memoizeFormatConstructor: HigherOrderFunction;
 export declare const MemoizedRelativeTimeFormat: cachedFuncType;
 export declare const MemoizedDateTimeFormat: cachedFuncType;
 export {};

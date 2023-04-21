@@ -19,7 +19,7 @@ or add links to CDN
   {
     "imports": {
       "lit": "https://cdn.jsdelivr.net/npm/lit@2.7.0/+esm",
-      "fmt-timestamp": "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.2"
+      "fmt-timestamp": "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.3"
     }
   }
 </script>
@@ -57,7 +57,7 @@ Just import them in your JS file in this way.
   formatRelativeTime,
   formatToShort,
   formatToTime,
-} from "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.2/dist/index.js";
+} from "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.3/dist/index.js";
 ```
 
 Examples of usage
@@ -81,23 +81,13 @@ To style component container just pass styles as usually using <span style="colo
 fmt-timestamp {
   display: block;
   margin: 0 auto;
-  ...;
-}
-```
-
-If you want customize button, I am sure you will want, just use selectors. You will understand what do they mean from names.
-
-```css
-fmt-timestamp {
-  --btn-padding: 10px;
-  --btn-background: #bb9dcd;
-  --btn-color: #ece9ee;
-  --btn-hoverBackground: #73498c;
-  --btn-hoverColor: #d2d0d3;
-  --btn-border: none;
-  --btn-borderRadius: 10px;
-  --btn-fontSize: 20px;
-  --btn-transition: background-color 300ms linear;
+  padding: 20px;
+  background-color: #bb9dcd;
+  color: #ece9ee;
+  border-radius: 10px;
+  font-size: 20px;
+  transition: background-color 300ms linear;
+  ....;
 }
 ```
 
@@ -108,6 +98,12 @@ npm start
 ```
 
 Run web dev server.
+
+```bash
+npm run dev
+```
+
+Development mode. Run web server and typescript watching mode.
 
 ```bash
 npm run test

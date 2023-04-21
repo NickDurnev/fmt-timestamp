@@ -11,7 +11,7 @@ const formatToTime: funcType = (input, locale, timeZone) => {
       timeZone: timeZone,
     };
 
-    // format the rounded date as a time string using the Intl.DateTimeFormat API and the specified locale.
+    // format the rounded date as a time string using the Intl.DateTimeFormat API or cashed result and the specified locale.
     const timeString: string = MemoizedDateTimeFormat(
       locale, // the locale to use when formatting the date.
       options, // the options to use when formatting the time string.

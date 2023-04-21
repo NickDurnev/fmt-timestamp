@@ -11,7 +11,7 @@ const formatRelativeTime: funcType = (input, locale) => {
     const msInMonth = 1000 * 60 * 60 * 24 * 30;
     const msInYear = 1000 * 60 * 60 * 24 * 365;
 
-    const rtf = MemoizedRelativeTimeFormat(locale, { numeric: "auto" }); // create a new Intl.RelativeTimeFormat object with the valid locale and auto numeric style
+    const rtf = MemoizedRelativeTimeFormat(locale, { numeric: "auto" }); // create a new Intl.RelativeTimeFormat object or use cashed result with the valid locale and auto numeric style
 
     const seconds = abs / 1000;
     // if the time difference is less than 60 seconds, return the relative time string for seconds
