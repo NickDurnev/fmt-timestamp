@@ -11,7 +11,7 @@ export const enum Mode {
 @customElement("fmt-timestamp")
 export class FmtTimestamp extends LitElement {
   @property()
-  public datetime?: string;
+  public datetime = new Date().toISOString();
 
   @property()
   public locale?: string;
@@ -31,7 +31,7 @@ export class FmtTimestamp extends LitElement {
 
   protected render() {
     try {
-      const timestamp = this.datetime ? new Date(this.datetime) : new Date();
+      const timestamp = new Date(this.datetime);
       if (isNaN(timestamp.getTime())) {
         this.error = true;
         return this.datetime;
