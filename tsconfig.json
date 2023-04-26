@@ -1,10 +1,9 @@
-
 {
   "compilerOptions": {
-    "target": "es2019",
-    "module": "es2015",
+    "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "lib": ["es2019", "dom"],
+    "lib": ["ESNext", "dom"],
     "declaration": true,
     "declarationMap": true,
     "declarationDir": "dist/types",

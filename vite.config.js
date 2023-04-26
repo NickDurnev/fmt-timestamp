@@ -4,8 +4,6 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   server: {
-    open: "./devPage.html",
-    watch: {},
     port: 3000,
   },
   build: {
