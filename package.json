@@ -1,6 +1,6 @@
 {
-  "name": "@pragmasoft-ua/fmt-timestamp",
-  "version": "2023.4.2",
+  "name": "@nick_durnev/fmt-timestamp",
+  "version": "1.0.4",
   "description": "fmt-timestamp web component, developed using Lit.",
   "type": "module",
   "types": "./dist/types/index.d.ts",
