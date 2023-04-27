@@ -15,23 +15,9 @@ const UNITS = [
   S_PER_MINUTE,
 ];
 
-const UNIT_NAMES: Array<RelativeTimeFormatUnit> = [
-  "year",
-  "month",
-  "week",
-  "day",
-  "hour",
-  "minute",
-];
+const UNIT_NAMES = ["year", "month", "week", "day", "hour", "minute"] as const;
 
-type RelativeTimeFormatUnit =
-  | "year"
-  | "month"
-  | "week"
-  | "day"
-  | "hour"
-  | "minute"
-  | "second";
+type RelativeTimeFormatUnit = (typeof UNIT_NAMES)[number] | "second";
 
 /**
  * Converts date to a tuple [relativeOffset, unit] like [-50,"second"], suitable
