@@ -122,3 +122,7 @@ npm run build
 ```
 
 Create build in <span style="color:yellow">dist</span> directory based on <span style="color:yellow">vite.config.js</span> file .
+
+## TODO
+
+Fix tests

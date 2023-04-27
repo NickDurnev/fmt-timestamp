@@ -9,22 +9,17 @@
   </head>
   <body>
     <div>
-      <fmt-timestamp >2022-03-31T22:32:20.427Z</fmt-timestamp>
-      <fmt-timestamp >2024-02-01T22:32:20.427Z</fmt-timestamp>
-      <fmt-timestamp >2024-02-01T22:32:20.427Z</fmt-timestamp>
-      <fmt-timestamp >2023-03-29T12:25:07.427Z</fmt-timestamp>
-      <fmt-timestamp timezone="111">2023-03-29T12:25:07.427Z</fmt-timestamp>
-      <fmt-timestamp timezone="111" locale="qqq" >sss</fmt-timestamp>
-      <fmt-timestamp timezone="3" locale="a">qqq</fmt-timestamp>
+      <fmt-timestamp datetime="2022-03-31T22:32:20.427Z"></fmt-timestamp>
+      <fmt-timestamp datetime="2024-02-01T22:32:20.427Z"></fmt-timestamp>
+      <fmt-timestamp datetime="2023-03-29T12:25:07.427Z"></fmt-timestamp>
+      <fmt-timestamp datetime="2029--"></fmt-timestamp>
+      <fmt-timestamp
+        timezone="111"
+        datetime="2023-03-29T12:25:07.427Z"
+      ></fmt-timestamp>
+      <fmt-timestamp locale="en-US"></fmt-timestamp>
+      <fmt-timestamp timezone="GMT" locale="en"></fmt-timestamp>
     </div>
-    <script type="importmap">
-      {
-        "imports": {
-          "lit": "https://cdn.jsdelivr.net/npm/lit@2.7.0/+esm",
-          "fmt-timestamp": "https://unpkg.com/@nick_durnev/fmt-timestamp@1.0.3"
-        }
-      }
-    </script>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./src/index.ts"></script>
   </body>
 </html>
